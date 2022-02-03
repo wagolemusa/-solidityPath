@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.7;
 
-// rerquire, revert, assert
+// require, revert, assert
 // - gas refound state updates are reverted
 // custom error - save gas
 
