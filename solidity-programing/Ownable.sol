@@ -15,6 +15,7 @@ contract Ownable {
         owner = msg.sender;
     }
 
+    // This is a modifer which validate the owner.
     modifier onlyOwner() {
         require(msg.sender == owner, "not owner");
         _;
@@ -25,6 +26,7 @@ contract Ownable {
         owner = _newOwner;
     }
 
+    // This function was set only owner call it
     function onlyOwnerCanCallThisFunc() external onlyOwner {
         // code
     }
