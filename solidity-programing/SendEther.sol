@@ -24,7 +24,7 @@ contract SendEther {
     function sendViaCall(address payable _to) external payable {
         (bool success, ) = _to.call{value: 123}("");
         require(success, "call Faild");
-    }
+    } 
 }
 
 contract EthReciever {
@@ -34,3 +34,4 @@ contract EthReciever {
         emit Log(msg.value, gasleft());
     }
 }
+

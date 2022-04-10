@@ -42,6 +42,7 @@ contract FunctionModifier{
         // more code here
         count *=2;
     }
+    
     function foo() external sandwich {
         count += 1;
     }
