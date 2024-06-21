@@ -18,10 +18,11 @@ contract SimpleAction {
     */
     mapping(address => uint) public pendingReturns;  
 
-    bool ended = false;
+    bool ended = false; 
 
     event HighestBidIncrease(address bidder, uint amount);
     event AuctionEnded(address winner, uint amount);
+
 
     constructor(uint _biddingTime, address payable _beneficiary){
         beneficiary = _beneficiary;
@@ -29,9 +30,11 @@ contract SimpleAction {
     } 
 
     function bid() public payable {
+        
         if (block.timestamp > auctionEndTime){
             revert("The action has been  already ended");
         }
+
         if (msg.value <= highestBid){
             revert("There is already a higher or equal bid");
         }
@@ -39,6 +42,7 @@ contract SimpleAction {
         if (highestBid != 0){
             pendingReturns[highestBidder] += highestBid;
         }
+
         highestBidder = msg.sender;
         highestBid = msg.value;
 
@@ -46,7 +50,7 @@ contract SimpleAction {
     }
 
     function widthdraw() public returns(bool){
-        uint amount = pendingReturns[msg.sender];
+         uint amount = pendingReturns[msg.sender];
         if(amount > 0){
             pendingReturns[msg.sender] = 0;
 
@@ -70,3 +74,5 @@ contract SimpleAction {
         beneficiary.transfer(highestBid);
     }                                                                                                                                                                                                    
 }
+
+

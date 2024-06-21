@@ -9,7 +9,6 @@ contract Escrow {
 
     bool public isBuyerIn;
     bool public isSellerIn;
-
     uint public price;
 
     address public buyer;
@@ -24,6 +23,7 @@ contract Escrow {
     modifier escrowNotStarted() {
         require(currentSate == State.NOT_INITIATED);
         _;
+
     }
 
     // functions

@@ -2,6 +2,7 @@
 pragma solidity ^0.8.11;
 
 contract Ballot {
+    
     // VARIABLES
     struct vote {
         address voterAddress;
@@ -24,7 +25,7 @@ contract Ballot {
 
     mapping(uint => vote) private votes;
     mapping(uint => voter) public voterRegister;
-
+    
     enum State { Created, Voting, Ended }
 
     State public state;
@@ -50,7 +51,6 @@ contract Ballot {
         ballotOfficialAddress = msg.sender;
         ballotOfficalName = _ballatOfficialName;
         proposal = _proposal;
-
         state = State.Created;
     }
 

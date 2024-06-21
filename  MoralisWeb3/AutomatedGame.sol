@@ -58,12 +58,10 @@ contract GameTime {
         uint payoutPerWinner = msg.value / (playerCount -1);
         for (uint i=0; i < playerInGame.length; i++){
             address currentPlayerAddress = playerInGame[i].playerAddress;
-            if  (currentPlayerAddress != loserAddress){
+            if (currentPlayerAddress != loserAddress){
                 payable(currentPlayerAddress).transfer(payoutPerWinner);
             }
         }
 
     }
-
-
 }

@@ -11,7 +11,7 @@ library MyLibray {
 }
 
 contract MyContract {
-    using MyLibray for MyLibray.player;
+    using MyLibray for MyLibray.Player;
     mapping(uint => MyLibray.Player) players;
     function foo() external {
         players[0].increamentScore(10);

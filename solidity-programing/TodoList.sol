@@ -25,7 +25,6 @@ contract TodoList {
     }
 
     // function to set complated to true
-
     function taggleCompleted(uint _index) external {
         todos[_index].completed = !todos[_index].completed;
     }
